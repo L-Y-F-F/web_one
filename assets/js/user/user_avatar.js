@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
   var layer = layui.layer
 
   // 1.1 获取裁剪区域的 DOM 元素
@@ -15,12 +15,12 @@ $(function() {
   $image.cropper(options)
 
   // 为上传按钮绑定点击事件
-  $('#btnChooseImage').on('click', function() {
+  $('#btnChooseImage').on('click', function () {
     $('#file').click()
   })
 
   // 为文件选择框绑定 change 事件
-  $('#file').on('change', function(e) {
+  $('#file').on('change', function (e) {
     // 获取用户选择的文件
     var filelist = e.target.files
     if (filelist.length === 0) {
@@ -39,7 +39,7 @@ $(function() {
   })
 
   // 头像上传
-  $('#btnUpload').on('click', function() {
+  $('#btnUpload').on('click', function () {
     // 获取用户裁剪之后的头像
     var dataURL = $image
       .cropper('getCroppedCanvas', {
@@ -48,7 +48,7 @@ $(function() {
         height: 100
       })
       .toDataURL('image/png')
-      // 将 Canvas 画布上的内容，转化为 base64 格式的字符串
+    // 将 Canvas 画布上的内容，转化为 base64 格式的字符串
     //  调用接口，把头像上传到服务器
     $.ajax({
       method: 'POST',
